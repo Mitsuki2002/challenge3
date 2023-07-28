@@ -1,0 +1,36 @@
+<div class='container'>
+
+
+  <div class='row'>
+    <div class="mx-auto">
+    <h2></br>User info</h2>
+    <%= form_with model:@user, local:true do |f| %>
+      <div class="mx-auto">
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:</h3>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div >
+        <%= f.label :name %>
+        </br>
+        <%= f.text_field :name %>
+        </br>
+        <%= f.label :image %>
+        </br>
+        <%= f.file_field :profile_image, accept: 'image/jpeg' %>
+        </br>
+        <%= f.label :introduction %>
+        </br>
+        <%= f.text_area :introduction %>
+        </br>
+        <%= f.submit %>
+    <% end %>
+  </div>
+</div>
